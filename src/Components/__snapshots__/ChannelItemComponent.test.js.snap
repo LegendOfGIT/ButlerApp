@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChannelItem Component renders without crashing 1`] = `
+<div>
+  <div>
+    Title-Image
+  </div>
+  <div>
+    Title
+  </div>
+  <div>
+    Information-Header
+  </div>
+  <div>
+    Description
+  </div>
+</div>
+`;
