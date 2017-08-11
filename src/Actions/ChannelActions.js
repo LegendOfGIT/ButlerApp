@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import {
-    FETCH_CHANNEL_DATA,
-    FETCH_CHANNEL_DATA_SUCCESS
+    FETCH_CHANNEL_DATA_SUCCESS,
+    FETCH_CHANNEL_IS_LOADING
 } from './ActionTypes';
 
 function fetchChannelDataSuccess(json)
@@ -14,10 +14,12 @@ function fetchChannelDataSuccess(json)
 
 export function fetchChannelData()
 {
-    return (dispatch, getState) => {
-        dispatch({ type: FETCH_CHANNEL_DATA });
+    return (dispatch) => {
+        dispatch({ type: FETCH_CHANNEL_DATA_SUCCESS });
 
-        return fetch('/api/getChannel')
-            .then(response => dispatch(fetchChannelDataSuccess(response.json())))
-    };
-}
+        return {
+            type: FETCH_CHANNEL_IS_LOADING,
+            payload: false
+        };
+    }
+};

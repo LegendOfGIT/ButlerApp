@@ -1,7 +1,10 @@
 import { fetchChannelData } from './ChannelActions';
 import { FETCH_CHANNEL_DATA_SUCCESS } from './ActionTypes';
 import configureStore from 'redux-mock-store';
-const mockStore = configureStore();
+import thunk from 'redux-thunk';
+
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 const store = mockStore();
 
 const httpCodes = {
@@ -26,13 +29,11 @@ describe('Channel Actions', () => {
                 )
             );
 
-        return store.dispatch(fetchChannelData())
-            .then(() => {
-                const triggeredActions = store.getActions();
-                expect(triggeredActions).toEqual([
-                    { type: FETCH_CHANNEL_DATA_SUCCESS }
-                ]);
-            });
+        store.dispatch(fetchChannelData());
+        const triggeredActions = store.getActions();
+        expect(triggeredActions).toEqual([
+            { type: FETCH_CHANNEL_DATA_SUCCESS }
+        ]);
     });
 });
 
