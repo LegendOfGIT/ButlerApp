@@ -3,8 +3,8 @@ import { FETCH_CHANNEL_DATA_SUCCESS } from './ActionTypes';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+const middleware = [thunk];
+const mockStore = configureStore(middleware);
 const store = mockStore();
 
 const httpCodes = {
@@ -13,27 +13,29 @@ const httpCodes = {
 };
 
 describe('Channel Actions', () => {
-    it('calls action ' + FETCH_CHANNEL_DATA_SUCCESS + ' when the fetch response was successful', () => {
+    it('calls action ' + FETCH_CHANNEL_DATA_SUCCESS + ' with response in payload, when the fetch response was successful', () => {
+        const payload = {
+            channelItems: [
+                { id: "AAA-BBB-CCC" },
+                { id: "BBB-CCC-DDD" },
+                { id: "CCC-DDD-EEE"}
+            ],
+            title: "Aktivitäten in Hannover"
+        };
+
         window.fetch =
             jest.fn().mockImplementation(
-                () => Promise.resolve(
-                    new window.Response(
-                        '{ title: "Aktivitäten in Hannover", channelItems: [{ id: "AAA-BBB-CCC" },{ id: "BBB-CCC-DDD" },{ id: "CCC-DDD-EEE"}] }',
-                        {
-                            status: httpCodes.success,
-                            headers: {
-                                'Content-type': 'application/json'
-                            }
-                        }
-                    )
-                )
+                () => Promise.resolve({
+                    json: () => Promise.resolve(payload)
+                })
             );
 
-        store.dispatch(fetchChannelData());
-        const triggeredActions = store.getActions();
-        expect(triggeredActions).toEqual([
-            { type: FETCH_CHANNEL_DATA_SUCCESS }
-        ]);
+        store.dispatch(fetchChannelData()).then(() => {
+            const triggeredActions = store.getActions();
+            expect(triggeredActions).toEqual([
+                { type: FETCH_CHANNEL_DATA_SUCCESS, payload: payload }
+            ]);
+        });
     });
 });
 

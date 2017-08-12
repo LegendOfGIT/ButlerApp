@@ -1,25 +1,21 @@
 import 'isomorphic-fetch';
 import {
-    FETCH_CHANNEL_DATA_SUCCESS,
-    FETCH_CHANNEL_IS_LOADING
+    FETCH_CHANNEL_DATA_SUCCESS
 } from './ActionTypes';
-
-function fetchChannelDataSuccess(json)
-{
-    return {
-        type: FETCH_CHANNEL_DATA_SUCCESS,
-        payload: json
-    };
-}
 
 export function fetchChannelData()
 {
     return (dispatch) => {
-        dispatch({ type: FETCH_CHANNEL_DATA_SUCCESS });
-
-        return {
-            type: FETCH_CHANNEL_IS_LOADING,
-            payload: false
-        };
+        return fetch('http://127.0.0.1:12354/InformationChannelService/GetChannel')
+            .then((response) => {
+                const jsonResponse = response.json();
+                return jsonResponse;
+            })
+            .then((channel) =>{
+                dispatch({
+                    type:  FETCH_CHANNEL_DATA_SUCCESS,
+                    payload: channel
+                });
+            });
     }
-};
+}
