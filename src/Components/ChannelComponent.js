@@ -3,7 +3,7 @@ import ChannelItem from './ChannelItemComponent';
 
 const Channel = () => {
     return (
-        <div>
+        <div className="Channel">
             <h2>Test-Stream</h2>
             <ChannelItem />
             <ChannelItem />

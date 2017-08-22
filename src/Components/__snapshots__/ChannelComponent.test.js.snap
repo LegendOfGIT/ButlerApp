@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Channel Component renders without crashing 1`] = `
-<div>
+<div
+  className="Channel"
+>
   <h2>
     Test-Stream
   </h2>
-  <div>
+  <div
+    className="ChannelItem"
+  >
     <div>
       Title-Image
     </div>
@@ -19,7 +23,9 @@ exports[`Channel Component renders without crashing 1`] = `
       Description
     </div>
   </div>
-  <div>
+  <div
+    className="ChannelItem"
+  >
     <div>
       Title-Image
     </div>
@@ -33,7 +39,9 @@ exports[`Channel Component renders without crashing 1`] = `
       Description
     </div>
   </div>
-  <div>
+  <div
+    className="ChannelItem"
+  >
     <div>
       Title-Image
     </div>

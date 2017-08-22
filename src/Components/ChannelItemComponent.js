@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const ChannelItemComponent = () => {
   return (
-      <div>
+      <div className="ChannelItem">
           <div>Title-Image</div>
           <div>Title</div>
           <div>Information-Header</div>

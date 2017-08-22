@@ -25,11 +25,15 @@ exports[`renders without crashing 1`] = `
     </code>
      and save to reload.
   </p>
-  <div>
+  <div
+    className="Channel"
+  >
     <h2>
       Test-Stream
     </h2>
-    <div>
+    <div
+      className="ChannelItem"
+    >
       <div>
         Title-Image
       </div>
@@ -43,7 +47,9 @@ exports[`renders without crashing 1`] = `
         Description
       </div>
     </div>
-    <div>
+    <div
+      className="ChannelItem"
+    >
       <div>
         Title-Image
       </div>
@@ -57,7 +63,9 @@ exports[`renders without crashing 1`] = `
         Description
       </div>
     </div>
-    <div>
+    <div
+      className="ChannelItem"
+    >
       <div>
         Title-Image
       </div>
