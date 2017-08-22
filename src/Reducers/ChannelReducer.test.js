@@ -1,4 +1,4 @@
-import channel from './ChannelReducer'
+import { channel } from './ChannelReducer'
 import { FETCH_CHANNEL_DATA_SUCCESS } from '../Actions/ActionTypes'
 
 describe('Channel Reducer', () => {

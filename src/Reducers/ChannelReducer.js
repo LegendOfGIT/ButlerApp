@@ -5,7 +5,7 @@ const initialState = {
     channelItems: []
 };
 
-export default function channel(state = initialState, action) {
+export function channel(state = initialState, action) {
     switch (action.type) {
         case FETCH_CHANNEL_DATA_SUCCESS:
             return action.payload
