@@ -1,9 +1,16 @@
 import React from 'react';
 
-const ChannelItemComponent = () => {
+const ChannelItemComponent = ({ title }) => {
+    let componentContent = [];
+
+    if (title)
+    {
+        componentContent.push(<div>{title}</div>);
+    }
+
     return (
         <div className="ChannelItem">
-            <div>Title</div>
+            {componentContent}
             <div>Information-Header</div>
             <div>Description</div>
         </div>
