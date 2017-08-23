@@ -7,53 +7,14 @@ exports[`Channel Component renders without crashing 1`] = `
   <h2>
     Test-Stream
   </h2>
-  <div
-    className="ChannelItem"
-  >
-    <div>
-      Title-Image
-    </div>
-    <div>
-      Title
-    </div>
-    <div>
-      Information-Header
-    </div>
-    <div>
-      Description
-    </div>
+  <div>
+    ChannelItemContainer
   </div>
-  <div
-    className="ChannelItem"
-  >
-    <div>
-      Title-Image
-    </div>
-    <div>
-      Title
-    </div>
-    <div>
-      Information-Header
-    </div>
-    <div>
-      Description
-    </div>
+  <div>
+    ChannelItemContainer
   </div>
-  <div
-    className="ChannelItem"
-  >
-    <div>
-      Title-Image
-    </div>
-    <div>
-      Title
-    </div>
-    <div>
-      Information-Header
-    </div>
-    <div>
-      Description
-    </div>
+  <div>
+    ChannelItemContainer
   </div>
 </div>
 `;

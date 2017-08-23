@@ -25,60 +25,8 @@ exports[`renders without crashing 1`] = `
     </code>
      and save to reload.
   </p>
-  <div
-    className="Channel"
-  >
-    <h2>
-      Test-Stream
-    </h2>
-    <div
-      className="ChannelItem"
-    >
-      <div>
-        Title-Image
-      </div>
-      <div>
-        Title
-      </div>
-      <div>
-        Information-Header
-      </div>
-      <div>
-        Description
-      </div>
-    </div>
-    <div
-      className="ChannelItem"
-    >
-      <div>
-        Title-Image
-      </div>
-      <div>
-        Title
-      </div>
-      <div>
-        Information-Header
-      </div>
-      <div>
-        Description
-      </div>
-    </div>
-    <div
-      className="ChannelItem"
-    >
-      <div>
-        Title-Image
-      </div>
-      <div>
-        Title
-      </div>
-      <div>
-        Information-Header
-      </div>
-      <div>
-        Description
-      </div>
-    </div>
+  <div>
+    ChannelComponent
   </div>
 </div>
 `;

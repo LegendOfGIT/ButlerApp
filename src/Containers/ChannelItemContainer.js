@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChannelItemComponent from '../Components/ChannelItemComponent';
 import PropTypes from 'prop-types';

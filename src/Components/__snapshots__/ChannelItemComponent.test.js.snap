@@ -1,12 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChannelItem Component renders without crashing 1`] = `
+exports[`ChannelItem Component renders information "title" when property is set 1`] = `
 <div
   className="ChannelItem"
 >
   <div>
-    Title-Image
+    Title
   </div>
+  <div>
+    Information-Header
+  </div>
+  <div>
+    Description
+  </div>
+</div>
+`;
+
+exports[`ChannelItem Component renders without crashing 1`] = `
+<div
+  className="ChannelItem"
+>
   <div>
     Title
   </div>
