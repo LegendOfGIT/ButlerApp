@@ -18,49 +18,46 @@ describe('Channel Actions', () => {
         fetch.resetMocks();
     });
 
-    it('calls action ' + FETCH_CHANNEL_DATA_SUCCESS + ' with response in payload, when the fetch response was successful', () => {
-        const payload = {
-            channelItems: [
-                { id: "AAA-BBB-CCC" },
-                { id: "BBB-CCC-DDD" },
-                { id: "CCC-DDD-EEE"}
-            ],
-            title: "Aktivitäten in Hannover"
-        };
+    describe('Action fetchChannelData', () => {
+        it('calls action ' + FETCH_CHANNEL_DATA_SUCCESS + ' with response in payload, when the fetch response was successful', () => {
+            const payload = {
+                channelItems: [
+                    { id: "AAA-BBB-CCC" },
+                    { id: "BBB-CCC-DDD" },
+                    { id: "CCC-DDD-EEE" }
+                ],
+                title: "Aktivitäten in Hannover"
+            };
 
-        fetch.mockResponseOnce(JSON.stringify(payload));
+            fetch.mockResponseOnce(JSON.stringify(payload));
 
-        store.dispatch(fetchChannelData()).then(() => {
-            const triggeredActions = store.getActions();
-            expect(triggeredActions).toEqual([
-                { type: FETCH_CHANNEL_HAS_ERROR, payload: false },
-                { type: FETCH_CHANNEL_IS_LOADING, payload: true },
-                { type: FETCH_CHANNEL_IS_LOADING, payload: false },
-                { type: FETCH_CHANNEL_DATA_SUCCESS, payload: payload }
-            ]);
+            store.dispatch(fetchChannelData()).then(() => {
+                const triggeredActions = store.getActions();
+                expect(triggeredActions).toEqual([
+                    { type: FETCH_CHANNEL_HAS_ERROR, payload: false },
+                    { type: FETCH_CHANNEL_IS_LOADING, payload: true },
+                    { type: FETCH_CHANNEL_IS_LOADING, payload: false },
+                    { type: FETCH_CHANNEL_DATA_SUCCESS, payload: payload }
+                ]);
+            });
+        });
+
+        it('calls action ' + FETCH_CHANNEL_HAS_ERROR + ', when the fetch response was unsuccessful', () => {
+            fetch.mockRejectOnce();
+
+            store.dispatch(fetchChannelData()).then().catch(() => {
+                const triggeredActions = store.getActions();
+                expect(triggeredActions).toEqual([
+                    { type: FETCH_CHANNEL_HAS_ERROR, payload: false },
+                    { type: FETCH_CHANNEL_IS_LOADING, payload: true },
+                    { type: FETCH_CHANNEL_HAS_ERROR, payload: true }
+                ]);
+            });
         });
     });
 
-    it('calls action ' + FETCH_CHANNEL_HAS_ERROR + ', when the fetch response was unsuccessful', () => {
-        const payload = {
-            channelItems: [
-                { id: "AAA-BBB-CCC" },
-                { id: "BBB-CCC-DDD" },
-                { id: "CCC-DDD-EEE"}
-            ],
-            title: "Aktivitäten in Hannover"
-        };
+    describe('Action fetchChannelItem', () => {
 
-        fetch.mockRejectOnce();
-
-        store.dispatch(fetchChannelData()).then().catch(() => {
-            const triggeredActions = store.getActions();
-            expect(triggeredActions).toEqual([
-                { type: FETCH_CHANNEL_HAS_ERROR, payload: false },
-                { type: FETCH_CHANNEL_IS_LOADING, payload: true },
-                { type: FETCH_CHANNEL_HAS_ERROR, payload: true }
-            ]);
-        });
     });
 });
 

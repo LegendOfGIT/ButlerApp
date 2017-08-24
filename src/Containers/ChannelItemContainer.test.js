@@ -4,6 +4,7 @@ import ChannelItemComponent from '../Components/ChannelItemComponent';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
+import { FETCH_CHANNEL_ITEM_DATA } from '../Actions/ActionTypes';
 
 const mockStore = configureStore();
 const store = mockStore({
@@ -83,6 +84,22 @@ describe('ChannelItem Container', () => {
             expect(properties['description']).toEqual('TestItem C Description');
             expect(properties['header']).toEqual('TestItem C Header');
             expect(properties['title']).toEqual('TestItem C Title');
+        });
+    });
+
+    describe('Actions', () => {
+        it('sets the fetchChannelData property on component to call the action', () => {
+            Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
+            const properties = Component.nodes[0].props;
+            properties.fetchChannelItem('AAA-BBB-CCC-DDD');
+            expect(store.dispatch).toHaveBeenCalledWith(
+                {
+                    type: FETCH_CHANNEL_ITEM_DATA,
+                    payload: {
+                        id: 'AAA-BBB-CCC-DDD'
+                    }
+                }
+            );
         });
     });
 });

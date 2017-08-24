@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import ChannelItemComponent from '../Components/ChannelItemComponent';
 import PropTypes from 'prop-types';
 
-const mapDispatchToProps = () => {
-    return {}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchChannelItem: (id) => dispatch()
+    }
 };
 
 const mapStateToProps = (state, { id }) => {
