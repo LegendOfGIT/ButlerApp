@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ChannelItemComponent from '../Components/ChannelItemComponent';
 import PropTypes from 'prop-types';
+import * as channelActions from '../Actions/ChannelActions';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchChannelItem: (id) => dispatch()
+        actions: bindActionCreators(channelActions, dispatch)
     }
 };
 

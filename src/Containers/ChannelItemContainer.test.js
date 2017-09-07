@@ -4,7 +4,22 @@ import ChannelItemComponent from '../Components/ChannelItemComponent';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import { FETCH_CHANNEL_ITEM_DATA } from '../Actions/ActionTypes';
+
+import redux from 'redux';
+const reduxMock = jest.mock('redux', () => ({
+    ...redux,
+    bindActionCreators: (actions) => (actions)
+}));
+
+jest.mock(
+    '../Actions/ChannelActions',
+    () => ({
+        fetchChannelItem: (itemId) => ({
+            type: 'FETCH_CHANNEL_ITEM_DATA',
+            payload: itemId
+        })
+    })
+);
 
 const mockStore = configureStore();
 const store = mockStore({
@@ -40,7 +55,7 @@ describe('ChannelItem Container', () => {
             };
             const emptyStore = mockStore({});
             wrapper = mount(
-                <Provider store={emptyStore}>
+                <Provider dispatch={jest.fn()} store={emptyStore}>
                     <ChannelItemContainer {...props} />
                 </Provider>
             );
@@ -57,7 +72,7 @@ describe('ChannelItem Container', () => {
                 id: 'TestItem X ID'
             };
             wrapper = mount(
-                <Provider store={store}>
+                <Provider dispatch={jest.fn()} store={store}>
                     <ChannelItemContainer {...props} />
                 </Provider>
             );
@@ -74,7 +89,7 @@ describe('ChannelItem Container', () => {
                 id: 'TestItem C ID'
             };
             wrapper = mount(
-                <Provider store={store}>
+                <Provider dispatch={jest.fn()} store={store}>
                     <ChannelItemContainer {...props} />
                 </Provider>
             );
@@ -89,17 +104,22 @@ describe('ChannelItem Container', () => {
 
     describe('Actions', () => {
         it('sets the fetchChannelData property on component to call the action', () => {
+            const props = {
+                id: 'TestItem C ID'
+            };
+            wrapper = mount(
+                <Provider dispatch={jest.fn()} store={store}>
+                    <ChannelItemContainer {...props} />
+                </Provider>
+            );
+
+            const itemId = 'AAA-BBB-CCC-DDD';
             Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
             const properties = Component.nodes[0].props;
-            properties.fetchChannelItem('AAA-BBB-CCC-DDD');
-            expect(store.dispatch).toHaveBeenCalledWith(
-                {
-                    type: FETCH_CHANNEL_ITEM_DATA,
-                    payload: {
-                        id: 'AAA-BBB-CCC-DDD'
-                    }
-                }
-            );
+            expect(properties.actions.fetchChannelItem(itemId)).toEqual({
+                type: 'FETCH_CHANNEL_ITEM_DATA',
+                payload: itemId
+            });
         });
     });
 });
