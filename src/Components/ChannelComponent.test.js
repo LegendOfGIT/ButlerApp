@@ -14,5 +14,13 @@ describe('Channel Component', () => {
             <ChannelComponent/>
         ).toJSON()).toMatchSnapshot();
     });
+
+    it('calls fetchChannelData Action, when component is mount', () => {
+        const spy = jest.spyOn(ChannelComponent.prototype, 'fetchChannelData');
+
+        let component = TestRenderer.create(<ChannelComponent/>);
+        component.componentDidMount();
+        expect(spy).toBeCalled();
+    });
 });
 
