@@ -20,13 +20,17 @@ exports[`Channel Component renders without crashing 1`] = `
 `;
 
 exports[`Channel Component shows an error, when error state in store is active 1`] = `
-<div>
-  Error
+<div
+  className="alert alert-danger"
+>
+  error while loading channel
 </div>
 `;
 
 exports[`Channel Component shows loading animation, when loading state in store is active 1`] = `
-<div>
-  Loading...
+<div
+  className="alert alert-info"
+>
+  Loading channel...
 </div>
 `;

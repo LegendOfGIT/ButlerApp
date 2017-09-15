@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './Components/Channel.css';
 import './Components/ChannelItemComponent.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Channel from './Components/ChannelComponent';
 
 class App extends Component {

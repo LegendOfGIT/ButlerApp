@@ -12,12 +12,16 @@ class ChannelComponent extends Component {
     render() {
         if (this.props.isLoading)
         {
-            return (<div>Loading...</div>);
+            return (
+                <div className="alert alert-info">Loading channel...</div>
+            );
         }
 
         if (this.props.hasError)
         {
-            return (<div>Error</div>);
+            return (
+                <div className="alert alert-danger">error while loading channel</div>
+            );
         }
 
         return (
