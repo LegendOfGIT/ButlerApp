@@ -22,17 +22,52 @@ jest.mock(
 );
 
 const mockStore = configureStore();
+const mockStoreDefault = {
+    channel: { }
+};
 
 describe('Channel Component', () => {
     it('renders without crashing', () => {
         expect(TestRenderer.create(
-            <Provider dispatch={jest.fn()} store={mockStore({})}><ChannelComponent/></Provider>
+            <Provider dispatch={jest.fn()} store={mockStore(mockStoreDefault)}>
+                <ChannelComponent/>
+            </Provider>
+        ).toJSON()).toMatchSnapshot();
+    });
+
+    it('shows loading animation, when loading state in store is active', () => {
+        const store = mockStore({
+            channel: {
+                isLoading: true
+            }
+        });
+        expect(TestRenderer.create(
+            <Provider dispatch={jest.fn()} store={store}>
+                <ChannelComponent/>
+            </Provider>
+        ).toJSON()).toMatchSnapshot();
+    });
+
+    it('shows an error, when error state in store is active', () => {
+        const store = mockStore({
+            channel: {
+                hasError: true
+            }
+        });
+        expect(TestRenderer.create(
+            <Provider dispatch={jest.fn()} store={store}>
+                <ChannelComponent/>
+            </Provider>
         ).toJSON()).toMatchSnapshot();
     });
 
     it('calls fetchChannelData Action, when component is mount', () => {
-        const dispatchStore = mockStore({});
-        TestRenderer.create(<Provider dispatch={jest.fn()} store={dispatchStore}><ChannelComponent /></Provider>);
+        const dispatchStore = mockStore(mockStoreDefault);
+        TestRenderer.create(
+            <Provider dispatch={jest.fn()} store={dispatchStore}>
+                <ChannelComponent />
+            </Provider>
+        );
         expect(dispatchStore.getActions()).toEqual([{
             type: 'test'
         }]);

@@ -18,3 +18,15 @@ exports[`Channel Component renders without crashing 1`] = `
   </div>
 </div>
 `;
+
+exports[`Channel Component shows an error, when error state in store is active 1`] = `
+<div>
+  Error
+</div>
+`;
+
+exports[`Channel Component shows loading animation, when loading state in store is active 1`] = `
+<div>
+  Loading...
+</div>
+`;
