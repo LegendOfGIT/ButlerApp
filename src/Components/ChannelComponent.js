@@ -13,7 +13,10 @@ class ChannelComponent extends Component {
         if (this.props.isLoading)
         {
             return (
-                <div className="alert alert-info">Loading channel...</div>
+                <div className="alert alert-info">
+                    Loading channel...
+                    <div className="fa fa-spin fa-spinner">&nbsp;</div>
+                </div>
             );
         }
 

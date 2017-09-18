@@ -4,6 +4,7 @@ import './App.css';
 import './Components/Channel.css';
 import './Components/ChannelItemComponent.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css'
 import Channel from './Components/ChannelComponent';
 
 class App extends Component {
