@@ -29,7 +29,7 @@ class ChannelComponent extends Component {
 
         return (
             <div className="Channel">
-                <h2>Test-Stream</h2>
+                <h2>{this.props.channelTitle}</h2>
                 <ChannelItemContainer id="AAA-BBB-CCC-DDD" />
                 <ChannelItemContainer id="BBB-CCC-DDD-EEE" />
                 <ChannelItemContainer id="CCC-DDD-EEE-FFF" />
@@ -40,6 +40,7 @@ class ChannelComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        channelTitle: state.channel.title,
         hasError: state.channel.hasError,
         isLoading: state.channel.isLoading
     }
@@ -53,6 +54,7 @@ const mapDispatchToProps = (dispatch) => {
 
 ChannelComponent.propTypes = {
     fetchChannelData: PropTypes.func,
+    channelTitle: PropTypes.string,
     hasError: PropTypes.bool,
     isLoading: PropTypes.bool
 };

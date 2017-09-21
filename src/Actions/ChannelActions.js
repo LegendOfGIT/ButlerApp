@@ -32,7 +32,7 @@ export function fetchChannelData()
     return (dispatch) => {
         dispatch(fetchChannelHasError(false));
         dispatch(fetchChannelIsLoading(true));
-        return fetch('http://127.0.0.1:12354/InformationChannelService/GetChannel')
+        return fetch('http://localhost:56991/InformationChannelService.svc/GetChannel/itJobs')
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Service error');
