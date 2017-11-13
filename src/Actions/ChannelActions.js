@@ -32,7 +32,7 @@ export function fetchChannelData()
     return (dispatch) => {
         dispatch(fetchChannelHasError(false));
         dispatch(fetchChannelIsLoading(true));
-        return fetch('http://127.0.0.1:12354/InformationChannelService/GetChannel')
+        return fetch('http://localhost:56991/InformationChannelService.svc/GetChannel/Sport')
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Service error');
@@ -49,7 +49,7 @@ export function fetchChannelData()
             .then((channel) =>{
                 dispatch(fetchChannelDataSuccess(channel));
             })
-            .catch(() => {
+            .catch((e) => {
                 dispatch(fetchChannelHasError(true));
             });
     }
@@ -85,7 +85,7 @@ export function fetchChannelItemData(itemId)
     return (dispatch) => {
         dispatch(fetchChannelItemHasError(itemId, false));
         dispatch(fetchChannelItemIsLoading(itemId, true));
-        return fetch('http://127.0.0.1:12354/InformationChannelService/GetChannelItem/' + itemId)
+        return fetch('http://localhost:56991/InformationChannelService/GetChannelItem/' + itemId)
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Service error');
