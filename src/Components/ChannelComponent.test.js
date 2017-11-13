@@ -48,6 +48,19 @@ describe('Channel Component', () => {
         ).toJSON()).toMatchSnapshot();
     });
 
+    it('shows channel title from store', () => {
+        const store = mockStore({
+            channel: {
+                title: 'Fernsehprogramm: Pro-Sieben'
+            }
+        });
+        expect(TestRenderer.create(
+            <Provider dispatch={jest.fn()} store={store}>
+                <ChannelComponent/>
+            </Provider>
+        ).toJSON()).toMatchSnapshot();
+    });
+
     it('shows an error, when error state in store is active', () => {
         const store = mockStore({
             channel: {

@@ -4,9 +4,7 @@ exports[`Channel Component renders without crashing 1`] = `
 <div
   className="Channel"
 >
-  <h2>
-    Test-Stream
-  </h2>
+  <h2 />
   <div>
     ChannelItemContainer
   </div>
@@ -27,10 +25,34 @@ exports[`Channel Component shows an error, when error state in store is active 1
 </div>
 `;
 
+exports[`Channel Component shows channel title from store 1`] = `
+<div
+  className="Channel"
+>
+  <h2>
+    Fernsehprogramm: Pro-Sieben
+  </h2>
+  <div>
+    ChannelItemContainer
+  </div>
+  <div>
+    ChannelItemContainer
+  </div>
+  <div>
+    ChannelItemContainer
+  </div>
+</div>
+`;
+
 exports[`Channel Component shows loading animation, when loading state in store is active 1`] = `
 <div
   className="alert alert-info"
 >
   Loading channel...
+  <div
+    className="fa fa-spin fa-spinner"
+  >
+     
+  </div>
 </div>
 `;

@@ -49,7 +49,7 @@ export function fetchChannelData()
             .then((channel) =>{
                 dispatch(fetchChannelDataSuccess(channel));
             })
-            .catch((e) => {
+            .catch(() => {
                 dispatch(fetchChannelHasError(true));
             });
     }
