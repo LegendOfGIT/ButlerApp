@@ -29,7 +29,7 @@ class ChannelComponent extends Component {
 
         return (
             <div className="Channel">
-                <h2>{this.props.channelTitle}</h2>
+                <h2>{this.props.ChannelId}</h2>
                 <ChannelItemContainer id="AAA-BBB-CCC-DDD" />
                 <ChannelItemContainer id="BBB-CCC-DDD-EEE" />
                 <ChannelItemContainer id="CCC-DDD-EEE-FFF" />
@@ -39,8 +39,10 @@ class ChannelComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
+
     return {
-        channelTitle: state.channel.title,
+        ChannelId: state.channel.ChannelId,
         hasError: state.channel.hasError,
         isLoading: state.channel.isLoading
     }

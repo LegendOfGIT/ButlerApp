@@ -1,7 +1,6 @@
 import React from 'react';
 import ChannelComponent from './ChannelComponent';
 import TestRenderer from 'react-test-renderer';
-import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
@@ -51,7 +50,7 @@ describe('Channel Component', () => {
     it('shows channel title from store', () => {
         const store = mockStore({
             channel: {
-                title: 'Fernsehprogramm: Pro-Sieben'
+                ChannelId: 'Fernsehprogramm: Pro-Sieben'
             }
         });
         expect(TestRenderer.create(
