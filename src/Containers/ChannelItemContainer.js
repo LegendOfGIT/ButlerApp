@@ -18,15 +18,14 @@ const mapStateToProps = (state, { id }) => {
             (item) => { return item.id === id }
         );
 
-    if (channelItem === undefined){
-        channelItem = {
-            description: '',
-            header: '',
-            title: ''
-        };
-    }
+    channelItem = channelItem || {
+        description: '',
+        header: '',
+        title: ''
+    };
 
     return {
+        id,
         description: channelItem.description,
         header: channelItem.header,
         title: channelItem.title

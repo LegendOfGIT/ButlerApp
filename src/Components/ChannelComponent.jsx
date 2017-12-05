@@ -30,19 +30,20 @@ class ChannelComponent extends Component {
         return (
             <div className="Channel">
                 <h2>{this.props.ChannelId}</h2>
-                <ChannelItemContainer id="AAA-BBB-CCC-DDD" />
-                <ChannelItemContainer id="BBB-CCC-DDD-EEE" />
-                <ChannelItemContainer id="CCC-DDD-EEE-FFF" />
+                {
+                    this.props.ChannelItemIds.map((channelItemId) => (
+                        <ChannelItemContainer id={channelItemId} />
+                    ))
+                }
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
-
     return {
         ChannelId: state.channel.ChannelId,
+        ChannelItemIds: state.channel.InformationItemIds,
         hasError: state.channel.hasError,
         isLoading: state.channel.isLoading
     }
@@ -56,9 +57,14 @@ const mapDispatchToProps = (dispatch) => {
 
 ChannelComponent.propTypes = {
     fetchChannelData: PropTypes.func,
-    channelTitle: PropTypes.string,
+    ChannelId: PropTypes.string,
+    ChannelItemIds: PropTypes.array,
     hasError: PropTypes.bool,
     isLoading: PropTypes.bool
+};
+
+ChannelComponent.defaultProps = {
+    ChannelItemIds: []
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelComponent);

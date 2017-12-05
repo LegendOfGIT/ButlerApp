@@ -20,6 +20,16 @@ exports[`ChannelItem Component renders information "header" when property is set
 </div>
 `;
 
+exports[`ChannelItem Component renders information "id" when property is set 1`] = `
+<div
+  className="ChannelItem"
+>
+  <div>
+    AAA-BBB-CCC-DDD
+  </div>
+</div>
+`;
+
 exports[`ChannelItem Component renders information "title" when property is set 1`] = `
 <div
   className="ChannelItem"

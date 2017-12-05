@@ -7,6 +7,11 @@ describe('ChannelItem Component', () => {
         expect(TestRenderer.create(<ChannelItemComponent/>).toJSON()).toMatchSnapshot();
     });
 
+    it('renders information "id" when property is set', () => {
+        const props = { id: 'AAA-BBB-CCC-DDD' };
+        expect(TestRenderer.create(<ChannelItemComponent {...props} />).toJSON()).toMatchSnapshot();
+    });
+
     it('renders information "title" when property is set', () => {
         const props = { title: 'The Simpsons in 10 Minuten auf Pro-Sieben' };
         expect(TestRenderer.create(<ChannelItemComponent {...props} />).toJSON()).toMatchSnapshot();

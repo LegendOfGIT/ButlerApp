@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 jest.mock(
     '../Containers/ChannelItemContainer',
     () =>
-        { return () => <div>ChannelItemContainer</div>; }
+        { return (props) => <div {...props}>ChannelItemContainer</div>; }
 );
 
 const mockFetchChannelDataFn = jest.fn();
@@ -51,6 +51,23 @@ describe('Channel Component', () => {
         const store = mockStore({
             channel: {
                 ChannelId: 'Fernsehprogramm: Pro-Sieben'
+            }
+        });
+        expect(TestRenderer.create(
+            <Provider dispatch={jest.fn()} store={store}>
+                <ChannelComponent/>
+            </Provider>
+        ).toJSON()).toMatchSnapshot();
+    });
+
+    it('shows channel-items from store', () => {
+        const store = mockStore({
+            channel: {
+                InformationItemIds: [
+                    'AAA-BBB-CCC-DDD',
+                    'BBB-CCC-DDD-EEE',
+                    'CCC-DDD-EEE-FFF'
+                ]
             }
         });
         expect(TestRenderer.create(
