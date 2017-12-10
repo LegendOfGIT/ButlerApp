@@ -95,9 +95,7 @@ export function fetchChannelItemData(itemId)
             })
             .then((response) => {
                 dispatch(fetchChannelItemIsLoading(itemId, false));
-
-                const jsonResponse = response.json();
-                return jsonResponse;
+                return response.json();
             })
             .then((channelItem) =>{
                 dispatch(fetchChannelItemDataSuccess(channelItem));
