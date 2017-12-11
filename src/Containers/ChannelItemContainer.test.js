@@ -31,6 +31,7 @@ const store = mockStore({
         "TestItem A ID": {
             description: 'TestItem A Description',
             header: 'TestItem A Header',
+            mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/a.jpg',
             title: 'TestItem A Title'
         },
         "TestItem B ID": {
@@ -42,6 +43,7 @@ const store = mockStore({
             id: '',
             description: 'TestItem C Description',
             header: 'TestItem C Header',
+            mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/c.jpg',
             title: 'TestItem C Title'
         }
     }
@@ -67,6 +69,7 @@ describe('ChannelItem Container', () => {
             expect(properties['description']).toEqual('');
             expect(properties['header']).toEqual('');
             expect(properties['title']).toEqual('');
+            expect(properties['mainImageUrl']).toEqual('');
         });
 
         it('should compose empty ChannelItem, when it does not exist in store', () => {
@@ -84,6 +87,7 @@ describe('ChannelItem Container', () => {
             expect(properties['description']).toEqual('');
             expect(properties['header']).toEqual('');
             expect(properties['title']).toEqual('');
+            expect(properties['mainImageUrl']).toEqual('');
         });
 
         it('should get all ChannelItem information, when it exists in store', () => {
@@ -101,6 +105,7 @@ describe('ChannelItem Container', () => {
             expect(properties['description']).toEqual('TestItem C Description');
             expect(properties['header']).toEqual('TestItem C Header');
             expect(properties['title']).toEqual('TestItem C Title');
+            expect(properties['mainImageUrl']).toEqual('http://www.amazon.de/games/ASIN3223/image/c.jpg');
         });
     });
 

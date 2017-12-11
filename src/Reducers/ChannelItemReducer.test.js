@@ -35,6 +35,7 @@ describe('Channel-Item Reducer', () => {
     it('should handle ' + FETCH_CHANNEL_ITEM_DATA_SUCCESS, () => {
         const payload = {
             ChannelItemId: 'AAA-BBB-CCC-DDD',
+            MainImageUrl: 'http://www.steampoweredstore.com/images/app/23123/image1.jpg',
             Title: 'Test information A'
         };
 
@@ -45,6 +46,7 @@ describe('Channel-Item Reducer', () => {
             })
         ).toEqual({
             "AAA-BBB-CCC-DDD": {
+                "mainImageUrl": 'http://www.steampoweredstore.com/images/app/23123/image1.jpg',
                 "title": 'Test information A'
             }
         });

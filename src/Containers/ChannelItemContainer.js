@@ -19,6 +19,7 @@ const mapStateToProps = (state, { id }) => {
     channelItem = channelItem || {
         description: '',
         header: '',
+        mainImageUrl: '',
         title: ''
     };
 
@@ -26,6 +27,7 @@ const mapStateToProps = (state, { id }) => {
         id,
         description: channelItem.description,
         header: channelItem.header,
+        mainImageUrl: channelItem.mainImageUrl,
         title: channelItem.title
     }
 };
@@ -36,6 +38,7 @@ ChannelItemContainer.propTypes = {
     id: PropTypes.string.isRequired,
     description: PropTypes.string,
     header: PropTypes.string,
+    mainImageUrl: PropTypes.string,
     title: PropTypes.string
 };
 

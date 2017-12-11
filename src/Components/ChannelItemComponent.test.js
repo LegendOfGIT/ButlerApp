@@ -44,6 +44,13 @@ describe('ChannelItem Component', () => {
         expect(initComponent(props).toJSON()).toMatchSnapshot();
     });
 
+    it('renders information "mainImageUrl" when property is set', () => {
+        const props = {
+            mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/c.jpg'
+        };
+        expect(initComponent(props).toJSON()).toMatchSnapshot();
+    });
+
     it('calls fetchChannelItemData Action, when component is mount', () => {
         const dispatchStore = mockStore({});
         TestRenderer.create(

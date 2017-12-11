@@ -20,6 +20,17 @@ exports[`ChannelItem Component renders information "header" when property is set
 </div>
 `;
 
+exports[`ChannelItem Component renders information "mainImageUrl" when property is set 1`] = `
+<div
+  className="ChannelItem"
+>
+  <img
+    src="http://www.amazon.de/games/ASIN3223/image/c.jpg"
+    width={250}
+  />
+</div>
+`;
+
 exports[`ChannelItem Component renders information "title" when property is set 1`] = `
 <div
   className="ChannelItem"
