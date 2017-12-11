@@ -12,10 +12,9 @@ class ChannelItemComponent extends Component {
     render() {
         let componentContent = [];
 
-        //if (id) { componentContent.push(<div key={_.uniqueId()}>{id}</div>); }
-        //if (title) { componentContent.push(<div key={_.uniqueId()}>{title}</div>); }
-        //if (header) { componentContent.push(<div key={_.uniqueId()}>{header}</div>); }
-        //if (description) { componentContent.push(<div key={_.uniqueId()}>{description}</div>); }
+        if (this.props.title) { componentContent.push(<div key={_.uniqueId()}>{this.props.title}</div>); }
+        if (this.props.header) { componentContent.push(<div key={_.uniqueId()}>{this.props.header}</div>); }
+        if (this.props.description) { componentContent.push(<div key={_.uniqueId()}>{this.props.description}</div>); }
 
         return (
             <div className="ChannelItem">
@@ -33,7 +32,10 @@ const mapDispatchToProps = (dispatch) => {
 
 ChannelItemComponent.propTypes = {
     fetchChannelItemData: PropTypes.func,
-    id: PropTypes.string
+    id: PropTypes.string,
+    description: PropTypes.string,
+    header: PropTypes.string,
+    title: PropTypes.string
 };
 
-export default connect(mapDispatchToProps)(ChannelItemComponent);
+export default connect(null, mapDispatchToProps)(ChannelItemComponent);

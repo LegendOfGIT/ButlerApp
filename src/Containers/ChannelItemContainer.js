@@ -12,11 +12,9 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, { id }) => {
     let channelItem =
-        state.ChannelItems === undefined
+        state.channelItems === undefined || state.channelItems[id] === undefined
         ? undefined
-        : state.ChannelItems.find(
-            (item) => { return item.id === id }
-        );
+        : state.channelItems[id];
 
     channelItem = channelItem || {
         description: '',

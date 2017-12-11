@@ -85,7 +85,7 @@ export function fetchChannelItemData(itemId)
     return (dispatch) => {
         dispatch(fetchChannelItemHasError(itemId, false));
         dispatch(fetchChannelItemIsLoading(itemId, true));
-        return fetch('http://localhost:56991/InformationChannelService/GetChannelItem/' + itemId)
+        return fetch('http://localhost:56991/InformationChannelService.svc/GetChannelItem/' + itemId)
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Service error');

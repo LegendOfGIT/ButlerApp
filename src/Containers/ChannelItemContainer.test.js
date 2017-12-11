@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import ChannelItemContainer from './ChannelItemContainer';
 import ChannelItemComponent from '../Components/ChannelItemComponent';
@@ -14,7 +18,7 @@ const reduxMock = jest.mock('redux', () => ({
 jest.mock(
     '../Actions/ChannelActions',
     () => ({
-        fetchChannelItem: (itemId) => ({
+        fetchChannelItemData: (itemId) => ({
             type: 'FETCH_CHANNEL_ITEM_DATA',
             payload: itemId
         })
@@ -23,26 +27,24 @@ jest.mock(
 
 const mockStore = configureStore();
 const store = mockStore({
-    ChannelItems: [
-        {
-            id: 'TestItem A ID',
+    channelItems: {
+        "TestItem A ID": {
             description: 'TestItem A Description',
             header: 'TestItem A Header',
             title: 'TestItem A Title'
         },
-        {
-            id: 'TestItem B ID',
+        "TestItem B ID": {
             description: 'TestItem B Description',
             header: 'TestItem B Header',
             title: 'TestItem B Title'
         },
-        {
-            id: 'TestItem C ID',
+        "TestItem C ID": {
+            id: '',
             description: 'TestItem C Description',
             header: 'TestItem C Header',
             title: 'TestItem C Title'
         }
-    ]
+    }
 });
 
 describe('ChannelItem Container', () => {
@@ -103,7 +105,7 @@ describe('ChannelItem Container', () => {
     });
 
     describe('Actions', () => {
-        it('sets the fetchChannelData property on component to call the action', () => {
+        it('sets the fetchChannelItemData property on component to call the action', () => {
             const props = {
                 id: 'TestItem C ID'
             };
@@ -116,7 +118,7 @@ describe('ChannelItem Container', () => {
             const itemId = 'AAA-BBB-CCC-DDD';
             Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
             const properties = Component.nodes[0].props;
-            expect(properties.actions.fetchChannelItem(itemId)).toEqual({
+            expect(properties.actions.fetchChannelItemData(itemId)).toEqual({
                 type: 'FETCH_CHANNEL_ITEM_DATA',
                 payload: itemId
             });
