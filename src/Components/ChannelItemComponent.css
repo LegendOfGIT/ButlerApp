@@ -1,5 +1,13 @@
 .ChannelItem {
-  min-height: 250px;
-  padding: 0 0 0 15px;
-  text-align: left;
+  border:1px solid darkgray;
+  margin-bottom: 20px;
+  max-width:350px;
+  min-height: 350px;
+  padding: 15px 0 12px 15px;
+  text-align: center;
+}
+
+.ChannelItemHeader {
+  padding: 15px;
+  text-align: center;
 }

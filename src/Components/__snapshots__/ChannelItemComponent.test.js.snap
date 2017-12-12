@@ -4,8 +4,15 @@ exports[`ChannelItem Component renders information "description" when property i
 <div
   className="ChannelItem"
 >
-  <div>
-    Lisa und Bart vertreiben sich die Zeit auf dem Flohmarkt. Dort entdecken sie zu...
+  <div
+    className="ChannelItemHeader"
+  />
+  <div
+    className="ChannelItemBody"
+  >
+    <div>
+      Lisa und Bart vertreiben sich die Zeit auf dem Flohmarkt. Dort entdecken sie zu...
+    </div>
   </div>
 </div>
 `;
@@ -14,9 +21,16 @@ exports[`ChannelItem Component renders information "header" when property is set
 <div
   className="ChannelItem"
 >
-  <div>
-    Staffel: 5, Episode: 1, Titel: Homer und die Sangesbrüder
+  <div
+    className="ChannelItemHeader"
+  >
+    <div>
+      Staffel: 5, Episode: 1, Titel: Homer und die Sangesbrüder
+    </div>
   </div>
+  <div
+    className="ChannelItemBody"
+  />
 </div>
 `;
 
@@ -24,11 +38,18 @@ exports[`ChannelItem Component renders information "mainImageUrl" when property 
 <div
   className="ChannelItem"
 >
-  <img
-    alt={undefined}
-    src="http://www.amazon.de/games/ASIN3223/image/c.jpg"
-    width={250}
+  <div
+    className="ChannelItemHeader"
   />
+  <div
+    className="ChannelItemBody"
+  >
+    <img
+      alt={undefined}
+      src="http://www.amazon.de/games/ASIN3223/image/c.jpg"
+      width={250}
+    />
+  </div>
 </div>
 `;
 
@@ -36,14 +57,28 @@ exports[`ChannelItem Component renders information "title" when property is set 
 <div
   className="ChannelItem"
 >
-  <div>
-    The Simpsons in 10 Minuten auf Pro-Sieben
+  <div
+    className="ChannelItemHeader"
+  >
+    <div>
+      The Simpsons in 10 Minuten auf Pro-Sieben
+    </div>
   </div>
+  <div
+    className="ChannelItemBody"
+  />
 </div>
 `;
 
 exports[`ChannelItem Component renders without crashing 1`] = `
 <div
   className="ChannelItem"
-/>
+>
+  <div
+    className="ChannelItemHeader"
+  />
+  <div
+    className="ChannelItemBody"
+  />
+</div>
 `;

@@ -10,20 +10,27 @@ class ChannelItemComponent extends Component {
     }
 
     render() {
-        let componentContent = [];
+        let headerContent = [];
+        let bodyContent = [];
 
-        if (this.props.title) { componentContent.push(<div key={_.uniqueId()}>{this.props.title}</div>); }
+        if (this.props.header) { headerContent.push(<div key={_.uniqueId()}>{this.props.header}</div>); }
+        if (this.props.title) { headerContent.push(<div key={_.uniqueId()}>{this.props.title}</div>); }
+
         if (this.props.mainImageUrl) {
-            componentContent.push(
+            bodyContent.push(
                 <img key={_.uniqueId()} src={this.props.mainImageUrl} width={250} alt={this.props.id}/>
             );
         }
-        if (this.props.header) { componentContent.push(<div key={_.uniqueId()}>{this.props.header}</div>); }
-        if (this.props.description) { componentContent.push(<div key={_.uniqueId()}>{this.props.description}</div>); }
+        if (this.props.description) { bodyContent.push(<div key={_.uniqueId()}>{this.props.description}</div>); }
 
         return (
             <div className="ChannelItem">
-                {componentContent}
+                <div className="ChannelItemHeader">
+                    {headerContent}
+                </div>
+                <div className="ChannelItemBody">
+                    {bodyContent}
+                </div>
             </div>
         );
     }
