@@ -37,13 +37,13 @@ describe('ChannelItem Component', () => {
         expect(initComponent(props).toJSON()).toMatchSnapshot();
     });
 
-    it('renders information "description" when property is set', () => {
+    it('renders information "descriptionExcerpt" when property is set', () => {
         const props = {
-            description: 'Lisa und Bart vertreiben sich die Zeit auf dem Flohmarkt. Dort entdecken sie zu...'
+            descriptionExcerpt: 'Lisa und Bart vertreiben sich die...'
         };
         expect(initComponent(props).toJSON()).toMatchSnapshot();
     });
-
+    
     it('renders information "mainImageUrl" when property is set', () => {
         const props = {
             mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/c.jpg'

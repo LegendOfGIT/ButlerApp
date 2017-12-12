@@ -21,7 +21,9 @@ class ChannelItemComponent extends Component {
                 <img key={_.uniqueId()} src={this.props.mainImageUrl} width={250} alt={this.props.id}/>
             );
         }
-        if (this.props.description) { bodyContent.push(<div key={_.uniqueId()}>{this.props.description}</div>); }
+        if (this.props.descriptionExcerpt) {
+            bodyContent.push(<div key={_.uniqueId()}>{this.props.descriptionExcerpt}</div>);
+        }
 
         return (
             <div className="ChannelItem">
@@ -45,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
 ChannelItemComponent.propTypes = {
     fetchChannelItemData: PropTypes.func,
     id: PropTypes.string,
-    description: PropTypes.string,
+    descriptionExcerpt: PropTypes.string,
     header: PropTypes.string,
     mainImageUrl: PropTypes.string,
     title: PropTypes.string

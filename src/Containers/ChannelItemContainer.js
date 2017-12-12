@@ -18,6 +18,7 @@ const mapStateToProps = (state, { id }) => {
 
     channelItem = channelItem || {
         description: '',
+        descriptionExcerpt: '',
         header: '',
         mainImageUrl: '',
         title: ''
@@ -26,6 +27,7 @@ const mapStateToProps = (state, { id }) => {
     return {
         id,
         description: channelItem.description,
+        descriptionExcerpt: channelItem.descriptionExcerpt,
         header: channelItem.header,
         mainImageUrl: channelItem.mainImageUrl,
         title: channelItem.title
@@ -37,6 +39,7 @@ const ChannelItemContainer = connect(mapStateToProps, mapDispatchToProps)(Channe
 ChannelItemContainer.propTypes = {
     id: PropTypes.string.isRequired,
     description: PropTypes.string,
+    descriptionExcerpt: PropTypes.string,
     header: PropTypes.string,
     mainImageUrl: PropTypes.string,
     title: PropTypes.string

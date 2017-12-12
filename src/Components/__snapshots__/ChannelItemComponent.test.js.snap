@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChannelItem Component renders information "description" when property is set 1`] = `
+exports[`ChannelItem Component renders information "descriptionExcerpt" when property is set 1`] = `
 <div
   className="ChannelItem"
 >
@@ -11,7 +11,7 @@ exports[`ChannelItem Component renders information "description" when property i
     className="ChannelItemBody"
   >
     <div>
-      Lisa und Bart vertreiben sich die Zeit auf dem Flohmarkt. Dort entdecken sie zu...
+      Lisa und Bart vertreiben sich die...
     </div>
   </div>
 </div>

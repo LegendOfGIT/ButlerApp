@@ -30,18 +30,21 @@ const store = mockStore({
     channelItems: {
         "TestItem A ID": {
             description: 'TestItem A Description',
+            descriptionExcerpt: 'TestItem A Desc...',
             header: 'TestItem A Header',
             mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/a.jpg',
             title: 'TestItem A Title'
         },
         "TestItem B ID": {
             description: 'TestItem B Description',
+            descriptionExcerpt: 'TestItem B Desc...',
             header: 'TestItem B Header',
             title: 'TestItem B Title'
         },
         "TestItem C ID": {
             id: '',
             description: 'TestItem C Description',
+            descriptionExcerpt: 'TestItem C Desc...',
             header: 'TestItem C Header',
             mainImageUrl: 'http://www.amazon.de/games/ASIN3223/image/c.jpg',
             title: 'TestItem C Title'
@@ -67,6 +70,7 @@ describe('ChannelItem Container', () => {
             Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
             const properties = Component.nodes[0].props;
             expect(properties['description']).toEqual('');
+            expect(properties['descriptionExcerpt']).toEqual('');
             expect(properties['header']).toEqual('');
             expect(properties['title']).toEqual('');
             expect(properties['mainImageUrl']).toEqual('');
@@ -85,6 +89,7 @@ describe('ChannelItem Container', () => {
             Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
             const properties = Component.nodes[0].props;
             expect(properties['description']).toEqual('');
+            expect(properties['descriptionExcerpt']).toEqual('');
             expect(properties['header']).toEqual('');
             expect(properties['title']).toEqual('');
             expect(properties['mainImageUrl']).toEqual('');
@@ -103,6 +108,7 @@ describe('ChannelItem Container', () => {
             Component = wrapper.find(ChannelItemContainer).find(ChannelItemComponent);
             const properties = Component.nodes[0].props;
             expect(properties['description']).toEqual('TestItem C Description');
+            expect(properties['descriptionExcerpt']).toEqual('TestItem C Desc...');
             expect(properties['header']).toEqual('TestItem C Header');
             expect(properties['title']).toEqual('TestItem C Title');
             expect(properties['mainImageUrl']).toEqual('http://www.amazon.de/games/ASIN3223/image/c.jpg');

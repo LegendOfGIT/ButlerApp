@@ -34,7 +34,9 @@ describe('Channel-Item Reducer', () => {
 
     it('should handle ' + FETCH_CHANNEL_ITEM_DATA_SUCCESS, () => {
         const payload = {
-            ChannelItemId: 'AAA-BBB-CCC-DDD',
+            ChannelItemId: 'AAABBBCCCDDD',
+            Description: 'This is the description',
+            DescriptionExcerpt: 'This is the desc...',
             MainImageUrl: 'http://www.steampoweredstore.com/images/app/23123/image1.jpg',
             Title: 'Test information A'
         };
@@ -45,9 +47,11 @@ describe('Channel-Item Reducer', () => {
                 payload: payload
             })
         ).toEqual({
-            "AAA-BBB-CCC-DDD": {
-                "mainImageUrl": 'http://www.steampoweredstore.com/images/app/23123/image1.jpg',
-                "title": 'Test information A'
+            AAABBBCCCDDD: {
+                description: 'This is the description',
+                descriptionExcerpt: 'This is the desc...',
+                mainImageUrl: 'http://www.steampoweredstore.com/images/app/23123/image1.jpg',
+                title: 'Test information A'
             }
         });
     });

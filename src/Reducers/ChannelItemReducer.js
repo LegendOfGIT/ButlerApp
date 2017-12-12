@@ -11,6 +11,8 @@ export function channelItems(state = initialState, action) {
         case FETCH_CHANNEL_ITEM_DATA_SUCCESS: {
             let data = {};
             data[action.payload.ChannelItemId] = {
+                description: action.payload.Description,
+                descriptionExcerpt: action.payload.DescriptionExcerpt,
                 mainImageUrl: action.payload.MainImageUrl,
                 title: action.payload.Title
             };
