@@ -10,6 +10,13 @@ jest.mock(
         { return (props) => <div {...props}>ChannelItemContainer</div>; }
 );
 
+jest.mock(
+    'react-swipe-card/Cards',
+    () => {
+        return (props) => <div {...props}>Cards</div>;
+    }
+);
+
 const mockFetchChannelDataFn = jest.fn();
 jest.mock(
     '../Actions/ChannelActions',

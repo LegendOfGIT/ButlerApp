@@ -5,6 +5,12 @@ exports[`Channel Component renders without crashing 1`] = `
   className="Channel"
 >
   <h2 />
+  <div
+    className="master-root"
+    onEnd={[Function]}
+  >
+    Cards
+  </div>
 </div>
 `;
 
@@ -23,6 +29,12 @@ exports[`Channel Component shows channel title from store 1`] = `
   <h2>
     Fernsehprogramm: Pro-Sieben
   </h2>
+  <div
+    className="master-root"
+    onEnd={[Function]}
+  >
+    Cards
+  </div>
 </div>
 `;
 
@@ -32,19 +44,10 @@ exports[`Channel Component shows channel-items from store 1`] = `
 >
   <h2 />
   <div
-    id="AAA-BBB-CCC-DDD"
+    className="master-root"
+    onEnd={[Function]}
   >
-    ChannelItemContainer
-  </div>
-  <div
-    id="BBB-CCC-DDD-EEE"
-  >
-    ChannelItemContainer
-  </div>
-  <div
-    id="CCC-DDD-EEE-FFF"
-  >
-    ChannelItemContainer
+    Cards
   </div>
 </div>
 `;

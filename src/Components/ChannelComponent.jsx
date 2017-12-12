@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ChannelItemContainer from '../Containers/ChannelItemContainer';
 import { fetchChannelData } from '../Actions/ChannelActions';
 import PropTypes from 'prop-types';
+import Cards, { Card } from 'react-swipe-card';
 
 class ChannelComponent extends Component {
     componentDidMount() {
@@ -30,11 +31,20 @@ class ChannelComponent extends Component {
         return (
             <div className="Channel">
                 <h2>{this.props.ChannelId}</h2>
+                <Cards onEnd={() => {}} className='master-root'>
                 {
                     this.props.ChannelItemIds.map((channelItemId) => (
-                        <ChannelItemContainer id={channelItemId} />
+                        <Card
+                            onSwipeTop={() => {}}
+                            onSwipeRight={() => {}}
+                            onSwipeLeft={() => {}}
+                            onSwipeBottom={() => {}}
+                        >
+                            <ChannelItemContainer id={channelItemId} />
+                        </Card>
                     ))
                 }
+                </Cards>
             </div>
         );
     }
