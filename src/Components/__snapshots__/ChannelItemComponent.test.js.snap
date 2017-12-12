@@ -25,6 +25,7 @@ exports[`ChannelItem Component renders information "mainImageUrl" when property 
   className="ChannelItem"
 >
   <img
+    alt={undefined}
     src="http://www.amazon.de/games/ASIN3223/image/c.jpg"
     width={250}
   />

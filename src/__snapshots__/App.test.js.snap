@@ -13,18 +13,9 @@ exports[`renders without crashing 1`] = `
       src="logo.svg"
     />
     <h2>
-      Welcome to React
+      React 15.6.1
     </h2>
   </div>
-  <p
-    className="App-intro"
-  >
-    To get started, edit 
-    <code>
-      src/App.js
-    </code>
-     and save to reload.
-  </p>
   <div>
     ChannelComponent
   </div>
